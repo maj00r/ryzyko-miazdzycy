@@ -1,4 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+    IonCard, 
+    IonCardTitle,
+    IonCardContent,
+    IonInput} from '@ionic/react';
+import FormElement from '../../components/FormElement/FormElement';
 
 import './Home.css';
 
@@ -17,6 +22,11 @@ const HomePage: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         {/* <ExploreContainer /> */}
+        <IonCard>
+          <FormElement label='Wiek'>
+            <IonInput type='number' min={18} max={120}></IonInput>
+          </FormElement>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
