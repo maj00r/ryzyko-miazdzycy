@@ -4,7 +4,8 @@ import { IonSelect,
         IonCardTitle,
         IonCardContent,
         IonInput,
-        IonCheckbox} from '@ionic/react';
+        IonCheckbox,
+        IonLabel} from '@ionic/react';
 import { ReactElement } from 'react';
 import './FormElement.css';
 
@@ -23,10 +24,14 @@ export default FormElement;
 
 type Props = {
     label: string,
-    children: 
-        ReactElement<typeof IonInput> | 
-        ReactElement<typeof IonSelect> | 
-        ReactElement<typeof IonCheckbox> | 
-        ReactElement<typeof IonToggle>,
+    children: ReactElement<Inputs> | Array<ReactElement<Inputs>>,
+}
+
+type Inputs = {
+    input: typeof IonInput |
+           typeof IonSelect |
+           typeof IonCheckbox |
+           typeof IonToggle |
+           typeof IonLabel
 }
   
