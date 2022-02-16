@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ProbabilityCell from '../../components/ProbabilityCell/ProbabilityCell';
-
+import ProbabilityTable from '../../components/ProbabilityTable/ProbabilityTable';
+import { propabilityTable } from '../../data/coreData';
 import './Results.css';
 
 const ResultsPage: React.FC = () => {
@@ -17,10 +17,17 @@ const ResultsPage: React.FC = () => {
             <IonTitle size="large">Wynik</IonTitle>
           </IonToolbar>
         </IonHeader>
-        
-        {Array.from({ length: 15 }, (_, i) => (
-          <ProbabilityCell value={i}></ProbabilityCell>
-        ))}
+
+        <ProbabilityTable 
+          rawValues={propabilityTable.tables[0].table}
+          sizeX={5}
+          sizeY={4}
+          title='tytuł'
+          titleX='oś X'
+          titleY='oś Y'
+          legendX={['legenda']}
+          legendY={['legenda']}>
+        </ProbabilityTable>
         
       </IonContent>
     </IonPage>
