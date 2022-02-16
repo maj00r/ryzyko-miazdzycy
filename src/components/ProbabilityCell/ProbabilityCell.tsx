@@ -1,4 +1,3 @@
-import { IonLabel } from '@ionic/react';
 import './ProbabilityCell.css';
 
 type CellProps = {
@@ -38,8 +37,11 @@ const setColors = (value: number) => {
 
 const ProbabilityCell: React.FC<CellProps> = ({ value, isCurrentValue}) => {
     const {textColor, backColor} = setColors(value)
+    const currentValueClass = isCurrentValue ? 'currentValue' : undefined
     return (
-        <div id='wrapper' style={{backgroundColor: backColor, color: textColor}}>
+        <div id='wrapper' className={currentValueClass} 
+            style={{backgroundColor: backColor, 
+                color: textColor}}>
             {value}
         </div>
     );
