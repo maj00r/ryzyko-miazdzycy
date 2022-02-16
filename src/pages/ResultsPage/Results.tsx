@@ -1,4 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import ProbabilityCell from '../../components/ProbabilityCell/ProbabilityCell';
 
 import './Results.css';
 
@@ -7,16 +8,20 @@ const ResultsPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Formularz kandydata</IonTitle>
+          <IonTitle>Wynik</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Formularz kandydata</IonTitle>
+            <IonTitle size="large">Wynik</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {/* <ExploreContainer /> */}
+        
+        {Array.from({ length: 15 }, (_, i) => (
+          <ProbabilityCell value={i}></ProbabilityCell>
+        ))}
+        
       </IonContent>
     </IonPage>
   );
