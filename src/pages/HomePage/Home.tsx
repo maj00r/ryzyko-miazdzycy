@@ -6,33 +6,24 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
     IonToggle,
     IonLabel,
     IonCheckbox,
-    IonButton} from '@ionic/react';
+    IonButton,
+    IonRouterOutlet } from '@ionic/react';
 
 import Form from '../../components/Form/Form';
+import { Route, RouteComponentProps } from 'react-router-dom';
 
 import './Home.css';
+import ResultsPage from '../ResultsPage/Results';
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<RouteComponentProps> = ({ match }) => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Formularz kandydata</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Formularz kandydata</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        {/* <ExploreContainer /> */}
-        <IonCard>
-          <Form/>
-          <IonButton>Oblicz</IonButton>
-        </IonCard>
-      </IonContent>
-    </IonPage>
+    <IonRouterOutlet>
+      <Route 
+          path={"/result/age/:age/gender/:gender/pressure/:pressure/isSmoking/:isSmoking/"
+            +"cholesterolType/:cholesterolType/value/:cholesterolValue"}
+          component={ResultsPage}/>
+      <Route exact path="/" component={Form} />
+    </IonRouterOutlet>
   );
 };
 

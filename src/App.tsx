@@ -29,12 +29,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/result">
-          <ResultsPage />
-        </Route>
+        <Route path="/" render={props => <Home {...props} />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
