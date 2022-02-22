@@ -42,9 +42,9 @@ export const Form: React.FC<RouteComponentProps> = ({ history })  => {
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
       console.log(data);
-      history.push(`/result/age/:${data.age}/gender/:${data.gender}/pressure/:${data.pressure}`
-        + `/isSmoking/:${data.isSmoking}/cholesterolType/:${data.cholesterolType}`
-        + `/value/:${data.cholesterolValue}`)
+      history.push(`/result/age/${data.age}/gender/${data.gender}/pressure/${data.pressure}`
+        + `/isSmoking/${data.isSmoking}/cholesterolType/${data.cholesterolType}`
+        + `/value/${data.cholesterolValue}`)
     }
 
     return (

@@ -11,7 +11,9 @@ type TableProps = {
     legendY: string[],
     titleX: string,
     titleY: string,
-    title: string
+    title: string,
+    computedX: number,
+    computedY: number
 }
 
 const ProbabilityTable: React.FC<TableProps> = (props) => {
@@ -21,7 +23,9 @@ const ProbabilityTable: React.FC<TableProps> = (props) => {
                <IonRow key={i}>
                    {Array.from({ length: props.sizeX }, (_, k) => (
                         <IonCol key={k}>
-                            <ProbabilityCell value={props.rawValues[i][k]}>
+                            <ProbabilityCell 
+                                value={props.rawValues[i][k]} 
+                                isCurrentValue = {k == props.computedX && i == props.computedY}>
                             </ProbabilityCell>
                         </IonCol>
                     ))}

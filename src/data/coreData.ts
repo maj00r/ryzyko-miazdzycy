@@ -1,21 +1,23 @@
 const cholesterol_MG =     [150, 190, 230, 270, 310]
-const cholesterol_MMOL =   [  4,   5,   6,   7,   8]
-
+export const cholesterol_MMOL =   [  4,   5,   6,   7,   8]
+export const ages = [40, 50, 55, 60, 65, 70 ]
+export const pressures = [120, 140, 160, 180]
 export function cholesterolTypeConverter(inputCholesterolType : "mg" | "mmol", 
-                                        value : number) {
+                                        value : number) : number {
     if (inputCholesterolType === "mg") {
-        return cholesterol_MMOL[cholesterol_MG.indexOf(value)]
+        return value / 38
     } 
     if (inputCholesterolType === "mmol") {
-        return cholesterol_MG[cholesterol_MMOL.indexOf(value)]
+        return value * 38
     } 
+    return 0
 }
 
 // https://adst.mp.pl/img/articles/cholesterol/hipercholesterolemia/dsz-2019-tablica-polscore-640.jpg?classId=3a13f037-e0fc-4f75-a8df-f7de1341dfa6&assignmentId=b81a07a7-3e1e-4eec-8ded-9830bda74570&submissionId=c1d6b3a5-74b6-9cb4-901d-669e3d33a33d
 export const propabilityTable = {
     tables: [
         {
-            gender: 'M',
+            gender: 'male',
             isSmoking: false,
             age: 40,
             table:
@@ -26,7 +28,7 @@ export const propabilityTable = {
                 [1,1,1,1,1]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: false,
             age: 50,
             table:
@@ -37,7 +39,7 @@ export const propabilityTable = {
                 [2,2,2,3,3]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: false,
             age: 55,
             table:
@@ -48,7 +50,7 @@ export const propabilityTable = {
                 [2,3,3,4,5]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: false,
             age: 60,
             table:
@@ -59,7 +61,7 @@ export const propabilityTable = {
                 [4,4,5,6,8]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: false,
             age: 65,
             table:
@@ -70,7 +72,7 @@ export const propabilityTable = {
                 [6,7,9,10,12]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: false,
             age: 70,
             table:
@@ -81,7 +83,7 @@ export const propabilityTable = {
                 [10,12,14,17,20]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: true,
             age: 40,
             table:
@@ -92,7 +94,7 @@ export const propabilityTable = {
                 [1,1,2,2,3]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: true,
             age: 50,
             table:
@@ -103,7 +105,7 @@ export const propabilityTable = {
                 [3,4,5,5,6]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: true,
             age: 55,
             table:
@@ -114,7 +116,7 @@ export const propabilityTable = {
                 [5,6,7,8,10]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: true,
             age: 60,
             table:
@@ -125,7 +127,7 @@ export const propabilityTable = {
                 [7,9,11,13,15]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: true,
             age: 65,
             table:
@@ -136,7 +138,7 @@ export const propabilityTable = {
                 [12,14,17,20,23]
             ]
         },{
-            gender: 'M',
+            gender: 'male',
             isSmoking: true,
             age: 70,
             table:
@@ -149,7 +151,7 @@ export const propabilityTable = {
 
             //fsdgafsdagdagear
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: false,
             age: 40,
             table:
@@ -160,7 +162,7 @@ export const propabilityTable = {
                 [0,0,0,0,0]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: false,
             age: 50,
             table:
@@ -171,7 +173,7 @@ export const propabilityTable = {
                 [1,1,1,1,1]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: false,
             age: 55,
             table:
@@ -182,7 +184,7 @@ export const propabilityTable = {
                 [1,1,1,1,2]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: false,
             age: 60,
             table:
@@ -193,7 +195,7 @@ export const propabilityTable = {
                 [2,2,2,3,3]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: false,
             age: 65,
             table:
@@ -204,7 +206,7 @@ export const propabilityTable = {
                 [3,3,4,5,6]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: false,
             age: 70,
             table:
@@ -215,7 +217,7 @@ export const propabilityTable = {
                 [6,7,8,10,12]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: true,
             age: 40,
             table:
@@ -226,7 +228,7 @@ export const propabilityTable = {
                 [0,1,1,1,1]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: true,
             age: 50,
             table:
@@ -237,7 +239,7 @@ export const propabilityTable = {
                 [1,1,2,2,2]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: true,
             age: 55,
             table:
@@ -248,7 +250,7 @@ export const propabilityTable = {
                 [2,2,3,3,4]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: true,
             age: 60,
             table:
@@ -259,7 +261,7 @@ export const propabilityTable = {
                 [3,4,4,5,6]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: true,
             age: 65,
             table:
@@ -270,7 +272,7 @@ export const propabilityTable = {
                 [6,7,8,10,12]
             ]
         },{
-            gender: 'K',
+            gender: 'female',
             isSmoking: true,
             age: 70,
             table:
