@@ -1,4 +1,4 @@
-const cholesterol_MG =     [150, 190, 230, 270, 310]
+export const cholesterol_MG =     [150, 190, 230, 270, 310]
 export const cholesterol_MMOL =   [  4,   5,   6,   7,   8]
 export const ages = [40, 50, 55, 60, 65, 70 ]
 export const pressures = [120, 140, 160, 180]

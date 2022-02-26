@@ -5,7 +5,10 @@ import ProbabilityTable from '../../components/ProbabilityTable/ProbabilityTable
 import { cholesterolTypeConverter, propabilityTable, 
   cholesterol_MMOL as uniqueMmol, 
   ages as uniqueAges,
-  pressures as uniquePressures } from '../../data/coreData';
+  pressures as uniquePressures,
+  cholesterol_MMOL,
+  cholesterol_MG
+} from '../../data/coreData';
 import './Results.css';
 
 interface UserDetailPageProps extends RouteComponentProps<{
@@ -70,9 +73,6 @@ const pressureAndCholesterolMapper = (pressureValue : number,
   return {computedX, computedY}
 }
 
-
-
-
 const ResultsPage: React.FC<UserDetailPageProps> = ({match, history})  => {
 
   const matchedProbabilityGrid = findGrid(parseInt(match.params.age), 
@@ -98,13 +98,13 @@ const ResultsPage: React.FC<UserDetailPageProps> = ({match, history})  => {
         </IonHeader>
         <ProbabilityTable 
           rawValues={matchedProbabilityGrid}
-          sizeX={5}
-          sizeY={4}
-          title='tytuł'
-          titleX='oś X'
-          titleY='oś Y'
-          legendX={['legenda']}
-          legendY={['legenda']}
+          sizeX={matchedProbabilityGrid[0].length}
+          sizeY={matchedProbabilityGrid.length}
+          title='Prrawdopodobieństwo w %'
+          titleX={match.params.cholesterolType === 'mmol' ? 'mmol/l' : 'mg/dl'}
+          titleY='mm Hg'
+          legendX={match.params.cholesterolType === 'mmol' ? cholesterol_MMOL : cholesterol_MG}
+          legendY={uniquePressures}
           computedX={computedX}
           computedY={computedY}/>
         </IonContent>     
