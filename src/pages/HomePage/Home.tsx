@@ -1,27 +1,23 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
-    IonCard, 
-    IonCardTitle,
-    IonCardContent,
-    IonInput,
-    IonToggle,
-    IonLabel,
-    IonCheckbox,
-    IonButton,
-    IonRouterOutlet } from '@ionic/react';
+import {
+  IonRouterOutlet,
+} from "@ionic/react";
 
-import Form from '../../components/Form/Form';
-import { Route, RouteComponentProps } from 'react-router-dom';
+import Form from "../../components/Form/Form";
+import { Route, RouteComponentProps } from "react-router-dom";
 
-import './Home.css';
-import ResultsPage from '../ResultsPage/Results';
+import "./Home.css";
+import ResultsPage from "../ResultsPage/Results";
 
 const HomePage: React.FC<RouteComponentProps> = ({ match }) => {
   return (
     <IonRouterOutlet>
-      <Route 
-          path={"/result/age/:age/gender/:gender/pressure/:pressure/isSmoking/:isSmoking/"
-            +"cholesterolType/:cholesterolType/value/:cholesterolValue"}
-          component={ResultsPage}/>
+      <Route
+        path={
+          "/result/age/:age/gender/:gender/pressure/:pressure/isSmoking/:isSmoking/" +
+          "cholesterolType/:cholesterolType/value/:cholesterolValue"
+        }
+        component={ResultsPage}
+      />
       <Route exact path="/" component={Form} />
     </IonRouterOutlet>
   );
