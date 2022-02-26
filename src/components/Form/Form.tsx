@@ -146,7 +146,6 @@ export const Form: React.FC<RouteComponentProps> = ({ history }) => {
             </IonItem>
             <IonButton type="submit">Oblicz</IonButton>
           </form>
-          <IonButton>Oblicz</IonButton>
         </IonCard>
       </IonContent>
     </IonPage>
